@@ -265,3 +265,19 @@ html.fx{--t-x:-38px;--t-y:0px;--t-d:.75s;--t-e:cubic-bezier(.16,1,.3,1);--i-c0:p
 .fx-div.fx-on .dot{opacity:1;scale:1}
 
 @media (max-width:760px){html.fx{--t-x:-16px;--c-x:26px}.fx-div{--dv-w:3.6}}
+
+/* hero: o texto nunca sobe para baixo do menu.
+   O palco (.stage) é mais largo que a tela e sobe junto com a largura; o topo do texto
+   é calculado a partir do topo real da hero: menu (~75px) + respiro, em qualquer tela. */
+.hero{--safe:136px}
+.hero-copy{top:max(11%,calc(var(--safe) + 23.334cqw - var(--hh) * .35))}
+/* telas baixas e largas: título e texto um pouco menores, para caber entre o menu e a palavra FÔLEGO */
+@media (min-width:761px) and (max-height:780px){
+  .h-sub{font-size:clamp(1.7rem,2.3cqw,2.5rem)}
+  .hero-copy .lead{margin-top:8px;font-size:.92rem}
+  .hero-copy .actions{margin-top:12px}
+}
+@media (max-width:760px){
+  .stage{margin-top:224px}
+  .hero-copy{top:-104px}
+}
